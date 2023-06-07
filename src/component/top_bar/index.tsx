@@ -1,38 +1,46 @@
 import React, {useContext} from 'react';
-import {Box, Grid, IconButton, InputBase, useTheme} from "@mui/material";
-import LightModeIcon from '@mui/icons-material/LightMode';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import SearchIcon from '@mui/icons-material/Search';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import {AppBar, Box, Grid, IconButton, InputBase, Toolbar, Typography, useTheme} from "@mui/material";
+import {LightMode, DarkMode, Search, NotificationsNone, MenuOutlined} from '@mui/icons-material';
 import {ColorModeContex} from "../../theme";
 import {useStyles} from "./styles";
+import FlexBetween from '../flex-between';
 
 
-const TopBarComponent = () => {
+const TopBarComponent = (props: any) => {
     const theme = useTheme()
     const colorMode: any = useContext(ColorModeContex)
     const classes = useStyles()
+    const {isOpen, setIsOpen} = props
 
     return (
-        <Box className={classes.root} sx={{ flexGrow: 1 }}>
-            <Grid>Welcome Азамат</Grid>
-            <Box display='flex'>
+        <AppBar className={classes.root} position='static'>
+            <Toolbar className={classes.toolbar}>
+                <FlexBetween>
+                    <MenuOutlined className={classes.menuIcon} onClick={() => setIsOpen(!isOpen)}/>
+                    <Typography variant='h3'>Добро пожаловать, Alex</Typography>
+                </FlexBetween>
+                <Box display='flex'>
                 <Grid onClick={colorMode.toggleColorMode} className={classes.iconBlock}>
                     <IconButton className={classes.themeIcon}>
-                        {theme.palette.mode === 'dark' ? (<DarkModeIcon />) : (<LightModeIcon />)}
+                        {theme.palette.mode === 'dark' ? (<DarkMode />) : (<LightMode />)}
                     </IconButton>
                     <IconButton>
-                        <NotificationsNoneIcon />
+                        <NotificationsNone />
                     </IconButton>
                 </Grid>
                 <Grid className={classes.searchBlock}>
                     <IconButton className={classes.searchIcon}>
-                        <SearchIcon />
+                        <Search />
                     </IconButton>
                     <InputBase className={classes.searchInput} placeholder='Поиск'/>
                 </Grid>
             </Box>
-        </Box>
+            </Toolbar>
+        </AppBar>
+        // <Box className={classes.root} sx={{ flexGrow: 1 }}>
+        //     
+            
+        // </Box>
     );
 };
 
