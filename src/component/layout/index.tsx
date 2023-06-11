@@ -3,11 +3,11 @@ import { Outlet, useLocation } from "react-router-dom";
 import TopBarComponent from "../top_bar";
 import { Box, useMediaQuery } from "@mui/material";
 import SidebarComponent from "../sidebar";
-import { useState } from "react";
+import { FC, useState } from "react";
 import { useStyles } from "./styles";
 
 
-const LayoutComponent = () => {
+const LayoutComponent: FC = (): JSX.Element => {
     const [isOpen, setIsOpen] = useState(false)
     const location = useLocation()
     const isNonMobile = useMediaQuery('min-width:600px')
@@ -26,7 +26,7 @@ const LayoutComponent = () => {
                     height='100%'>
                     <SidebarComponent 
                         isNonMobile={isNonMobile}
-                        drowerWidth='250px'
+                        drawerWidth='250px'
                         isOpen={isOpen}
                         setIsOpen={setIsOpen}
                     />
