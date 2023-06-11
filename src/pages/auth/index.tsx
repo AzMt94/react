@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import LoginPage from '../auth/login'
+import LoginPage from './login'
 import RegisterPage from './register'
-import './style.scss'
 import {Box} from '@mui/material'
 import {instance} from '../../utils/axios'
 import { useAppDispatch } from '../../utils/hook'
@@ -11,12 +10,14 @@ import { AppErrors } from '../../common/errors'
 import {useForm} from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginSchema, RegisterSchema } from '../../utils/yup'
+import { useStyles } from './styles'
 
 
 const AuthRootComponent: React.FC = (): JSX.Element => {
     const location = useLocation()
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
+    const classes = useStyles()
     const {
         register,
         formState: {
@@ -63,8 +64,8 @@ const AuthRootComponent: React.FC = (): JSX.Element => {
     }
 
     return(
-        <div className='root'>
-            <form className="form" onSubmit={handleSubmit(handleSubmitForm)}>
+        <div className={classes.root}>
+            <form className={classes.form} onSubmit={handleSubmit(handleSubmitForm)}>
                 <Box
                     display='flex'
                     justifyContent='center'
@@ -84,12 +85,6 @@ const AuthRootComponent: React.FC = (): JSX.Element => {
                                 errors={errors}
                             /> : location.pathname === '/register' 
                                 ? <RegisterPage 
-                                    // setBin={setBin}
-                                    // setEmail={setEmail} 
-                                    // setUserName={setUserName}
-                                    // setPassword={setPassword} 
-                                    // setRepeatPassword={setRepeatPassword} 
-                                    // setCompanyName={setCompanyName}
                                     navigate={navigate}
                                     register={register}
                                     errors={errors}

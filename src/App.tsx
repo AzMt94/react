@@ -1,16 +1,16 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from './component/home';
+import Home from './pages/home';
 import PrivateRout from './utils/router/privateRout';
-import AuthRootComponent from './component/auth';
+import AuthRootComponent from './pages/auth';
 import { ColorModeContex, useMode } from './theme';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import LayoutComponent from './component/layout';
-import Cabinet from './component/cabinet';
-import AccountSettings from './component/accouте-settings';
-import News from './component/news';
-import Contacts from './component/contacts';
-import Price from './component/price';
+import Cabinet from './pages/cabinet';
+import AccountSettings from './pages/accouте-settings';
+import News from './pages/news';
+import Contacts from './pages/contacts';
+import Price from './pages/price';
 
 function App() {
 
