@@ -130,7 +130,6 @@ import {
 } from '@mui/material';
 import {
     ChevronLeftOutlined,
-    ChevronRightOutlined,
     LogoutOutlined
 } from '@mui/icons-material';
 import {useLocation, useNavigate} from "react-router-dom";
