@@ -34,6 +34,7 @@ export const useStyles = makeStyles((theme: Theme) => {
             brand: {
                 display: 'flex',
                 alignItems: 'center', 
+                gap: '10px',
                 paddingTop: '10px',
                 paddingLeft: '50px',
                 marginBottom: '20px',

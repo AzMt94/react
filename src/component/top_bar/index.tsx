@@ -18,7 +18,7 @@ const TopBarComponent: FC<ITopBarProps> = (props: ITopBarProps): JSX.Element => 
             <Toolbar className={classes.toolbar}>
                 <FlexBetween>
                     <MenuOutlined className={classes.menuIcon} onClick={() => setIsOpen(!isOpen)}/>
-                    <Typography variant='h3'>Добро пожаловать, Alex</Typography>
+                    <Typography variant='h3'>Добро пожаловать {sessionStorage.getItem('user')}</Typography>
                 </FlexBetween>
                 <Box display='flex'>
                 <Grid onClick={colorMode.toggleColorMode} className={classes.iconBlock}>
@@ -38,10 +38,6 @@ const TopBarComponent: FC<ITopBarProps> = (props: ITopBarProps): JSX.Element => 
             </Box>
             </Toolbar>
         </AppBar>
-        // <Box className={classes.root} sx={{ flexGrow: 1 }}>
-        //     
-            
-        // </Box>
     );
 };
 

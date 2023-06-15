@@ -8,24 +8,23 @@ export interface IPropsLogin <
     navigate: (to: string) => void
     register: UseFormRegister<TFieldValues>
     errors: FieldErrors<TFieldValues>
+    loading: boolean
 }
 
 export interface IPropsRegister <
     TFieldValues extends FieldValues = FieldValues,
     TContext = any
     >{
-    // setBin: (value: string) => void
-    // setPassword: (value: string) => void
-    // setRepeatPassword: (value: string) => void
-    // setCompanyName: (value: string) => void
     navigate: (to: string) => void
     register: UseFormRegister<TFieldValues>
     errors: FieldErrors<TFieldValues>
+    loading: boolean
 }
 
 export interface IAuthState {
     user: IPublicUser,
-    isLogged: boolean
+    isLogged: boolean,
+    isLoading: boolean
 }
 
 interface IPublicUser {
@@ -46,4 +45,17 @@ interface IWatchList {
     createdAt: string,
     updatedAt: string,
     user: number | null
+}
+
+export interface ILoginData {
+    email: string
+    password: string
+}
+
+export interface IRegisterData {
+    bin: string,
+    userName: string,
+    email: string,
+    companyName: string,
+    password: string
 }
